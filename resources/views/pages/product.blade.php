@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    body{
+        background-color: #161618;
+    }
+h5{
+    color:white;
+}
+</style>
 <div class="container">
     <div class="row mb-2">
         <div class="col">
@@ -35,7 +44,7 @@
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <a href="{{ url('barang') }}/{{ $barang->id }}" class="btn btn-outline-dark"><i class="bi bi-eye"></i> Detail</a>
+                                <a href="{{ url('barang') }}/{{ $barang->id }}" class="btn btn-outline-dark" style="color: white;"><i class="bi bi-eye"></i> Detail</a>
                             </div>
                         </div>
                     </div>

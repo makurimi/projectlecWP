@@ -1,14 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    body{
+        background-color:#161618;
+    }
+    h2{
+        color: white;
+    }
+    td{
+        color: white;
+    }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item text-dark"><a href="/"class="text-dark text-decoration-none">Home</a></li>
-                    <li class="breadcrumb-item text-dark"><a href="/product"class="text-dark text-decoration-none">Product</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Details</li>
+                    <li class="breadcrumb-item" style="color: white;"><a href="/"class=" text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item" style="color: white;"><a href="/product"class=" text-decoration-none">Product</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"style="color: white;">Details</li>
                 </ol>
             </nav>
         </div>
@@ -57,7 +69,7 @@
                                              <form method="post" action="{{ url('barang') }}/{{ $barang->id }}" >
                                             @csrf
                                                 <input type="text" class="form-group col-md-2" name="jumlah_pesan" class="form-control" required="">
-                                                <div class="form-group"><button type="submit" class="btn btn-primary mt-2 col-md-6 "><i class="bi bi-cart2"></i> Add to Cart</button>
+                                                <div class="form-group" ><button type="submit" class="btn btn-primary mt-2 col-md-6 "><i class="bi bi-cart2"></i> Add to Cart</button>
                                                 </div>
 
                                             </form>

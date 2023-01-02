@@ -1,7 +1,21 @@
 @extends('layouts.app')
 @section('content')
 <style>
-
+    body{
+        background-color: #161618;
+    }
+    h3{
+        color: white;
+    }
+    h5{
+        color: white;
+    }
+    a{
+        color: white;
+    }
+    i{
+        color: white;
+    }
 </style>
 
 <div class="slider" style="margin-top: 50px;">
@@ -56,7 +70,7 @@
     <section class="products mt-5 mb-5">
        <h3>
           <strong>Latest Release</strong>
-          <a href="/product" class="btn btn-outline-dark"><i class=""></i> Lihat Semua </a>
+          <a href="/product" class="btn btn-outline-dark" style="color: white;"><i class=""></i> Lihat Semua </a>
        </h3>
        <div class="row mt-4">
           @foreach($barangs as $barang)
@@ -72,7 +86,7 @@
                    </div>
                    <div class="row mt-2">
                       <div class="col-md-12">
-                         <a href="{{ url('barang') }}/{{ $barang->id }}" class="btn btn-outline-dark"><i class="bi bi-eye"></i> Detail</a>
+                         <a href="{{ url('barang') }}/{{ $barang->id }}" class="btn btn-outline-dark" style="color: white;"><i class="bi bi-eye"></i> Detail</a>
                       </div>
                    </div>
                 </div>

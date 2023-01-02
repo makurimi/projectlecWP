@@ -1,5 +1,23 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    body{
+        background-color:#161618;
+    }
+
+    li{
+        color: white;
+    }
+    h3{
+        color: white;
+    }
+    th{
+        color: white;
+    }
+    td{
+        color: white;
+    }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-2">
@@ -15,7 +33,7 @@
                 <div class="card-body">
                     <h3><i class="bi bi-cart2"></i> Check Out</h3>
                     @if(!empty($pesanan))
-                    <p class="text-end">Order Date : {{ $pesanan->tanggal }}</p>
+                    <p class="text-end" style="color: white;">Order Date : {{ $pesanan->tanggal }}</p>
                     <table class="table">
                         <thead>
                             <tr>
@@ -61,7 +79,7 @@
 
                         </tbody>
                     </table>
-                    <i class="text-center"> <span class="text-danger ">*</span> Please Insert Address and Mobile Phone first <a href="/editprofile"><i>click here</i></a></i>
+                    <i class="text-center" style="color: white;"> <span class="text-danger ">*</span> Please Insert Address and Mobile Phone first <a href="/editprofile"><i>click here</i></a></i>
                     @endif
 
                 </div>

@@ -1,9 +1,28 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    body{
+        background-color:#161618;
+    }
+
+    li{
+        color: white;
+    }
+    h3{
+        color: white;
+    }
+    th{
+        color: white;
+    }
+    td{
+        color: white;
+    }
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ url('history') }}" class="btn btn-outline-dark mt-2"><i class="bi bi-chevron-left"></i> Back</a>
+            <a href="{{ url('history') }}" class="btn btn-outline-dark mt-2" style="color: white;"><i class="bi bi-chevron-left"></i> Back</a>
         </div>
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">

@@ -12,6 +12,10 @@
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     <style>
 
+    *{
+        background-color: #161618;
+    }
+
       .mydrop{
         margin-right: 100px;
       }
@@ -21,7 +25,7 @@
       }
       .mynav a {
         margin-right: 10px;
-        color: black !important;
+        color: white !important;
         border-bottom: 2px solid transparent;
       }
 
@@ -59,12 +63,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg mynav">
+  <nav class="navbar navbar-expand-lg mynav" style="background-color: #161618;">
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEh2lUgqMA0kj7Hp7TmwhCJUiX90rGyUrmDtcCPH2cWFg8R8LuesBrXv-hASREkhRiDlJNKFRaTcFhP6D8ySFC3qIZyy71Vw6z4o4JpLaXGFhLH9KsvZuFYkVMH_IJH5Th3G_9cwICDQsYq-cqRtRNWrJ38PsSLm46kMlJYL_n-HHUzhuf-q7kQl6KVC" style="width:50px" alt=""></a>
+            <a class="nav-link" aria-current="page" href="/"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgTfq7a9qR6c5rpD23b6ysIzYmlVdsaP43cx9c0UPfToaKhsIrIBvp9LFLFHC_RCmbsKBtKKmqTtjBpI2JXsWxN6HBuRhVxyWZkbvtOZYDfkBP9KoWTmnfgbpJFRpYjYmcV27b8FGVyaJZtGjbkS3wTY9A1jhtmBfYiySL6gOfJZyJMnetkh7_ZEvZS" style="width:50px" alt=""></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/product">Show Product</a>
@@ -108,7 +112,7 @@
                       <li><a class="nav-link" href="#">{{ Auth::User()->name}}</a></li>
                       <li><a class="nav-link bi bi-person-gear" href="{{ url('profile') }}">  Edit Profile</a></li>
                       <li><a class="nav-link bi bi-person-lock" href="{{ route('password') }}">  Password</a></li>
-                      <li><hr class="dropdown-divider bg-white"></li>
+                      <li><hr class="dropdown-divider"  ></li>
                       <li><a class="nav-link bi bi-box-arrow-right" href="{{ route('logout') }}">  Log out</a></li>
                     </ul>
                   </li>
