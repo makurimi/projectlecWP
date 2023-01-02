@@ -11,16 +11,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
     <style>
+
       .mydrop{
         margin-right: 100px;
       }
 
       .mynav{
-        background-color: #38444d;
+        background-color: #ffffff;
       }
       .mynav a {
         margin-right: 10px;
-        color: white !important;
+        color: black !important;
         border-bottom: 2px solid transparent;
       }
 
@@ -39,7 +40,7 @@
           border: 0;
           outline: none;
           font-size: 20px;
-          color: #00000;
+          color: #000000;
       }
       ul .mymenu
       {
@@ -63,7 +64,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
+            <a class="nav-link" aria-current="page" href="/"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEh2lUgqMA0kj7Hp7TmwhCJUiX90rGyUrmDtcCPH2cWFg8R8LuesBrXv-hASREkhRiDlJNKFRaTcFhP6D8ySFC3qIZyy71Vw6z4o4JpLaXGFhLH9KsvZuFYkVMH_IJH5Th3G_9cwICDQsYq-cqRtRNWrJ38PsSLm46kMlJYL_n-HHUzhuf-q7kQl6KVC" style="width:50px" alt=""></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/product">Show Product</a>

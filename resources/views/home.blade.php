@@ -4,12 +4,40 @@
 
 </style>
 
-<!-- slide -->
+<div class="slider" style="margin-top: 50px;">
 
+    <!-- slide -->
+    <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjJ6f5RJOuC72F1Kkbzn9aAXyzylg_otTkuNmJUfbY-POHv4uBOZYPc8aSOskPP2xvu3BO-NX6p4nPcVFKgfEJyQKMxac_JUQY_ofvr4Cv3cl8U36CCAkpuyOcZb48qw3m40BpNnLGSpp8pAdq3tqZk68gorx4nfJJwMInm6iIb7slEbkZ-FMXg8cmd" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjJ6f5RJOuC72F1Kkbzn9aAXyzylg_otTkuNmJUfbY-POHv4uBOZYPc8aSOskPP2xvu3BO-NX6p4nPcVFKgfEJyQKMxac_JUQY_ofvr4Cv3cl8U36CCAkpuyOcZb48qw3m40BpNnLGSpp8pAdq3tqZk68gorx4nfJJwMInm6iIb7slEbkZ-FMXg8cmd" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjJ6f5RJOuC72F1Kkbzn9aAXyzylg_otTkuNmJUfbY-POHv4uBOZYPc8aSOskPP2xvu3BO-NX6p4nPcVFKgfEJyQKMxac_JUQY_ofvr4Cv3cl8U36CCAkpuyOcZb48qw3m40BpNnLGSpp8pAdq3tqZk68gorx4nfJJwMInm6iIb7slEbkZ-FMXg8cmd" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+</button>
+</div>
+</div>
 
 <div class="container">
     <section class="pilih-brand mt-4">
-       <h3><strong>Pilih Brand</strong></h3>
+       <h3><strong>Category</strong></h3>
        <div class="row mt-4">
           @foreach($categories as $kategori)
           <div class="col">
@@ -27,7 +55,7 @@
 
     <section class="products mt-5 mb-5">
        <h3>
-          <strong>Best Products</strong>
+          <strong>Latest Release</strong>
           <a href="/product" class="btn btn-outline-dark"><i class=""></i> Lihat Semua </a>
        </h3>
        <div class="row mt-4">
