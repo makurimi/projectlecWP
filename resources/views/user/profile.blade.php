@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    body{
+        background-color: #161618;
+    }
+h4{
+    color:white;
+}
+td{
+    color: white;
+}
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-2">
@@ -38,7 +51,7 @@
                                 <td>{{ $user->address }}</td>
                             </tr>
                             <tr>
-                                <a href="{{ url('editprofile')}}" class="btn btn-outline-dark bi bi-person-gear">   Edit Profile</a>
+                                <a href="{{ url('editprofile')}}" class="btn btn-outline-dark bi bi-person-gear" style="color: white;">   Edit Profile</a>
                             </tr>
 
                         </tbody>
