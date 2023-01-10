@@ -1,18 +1,11 @@
 @extends('layouts.app')
 @section('content')
-
 <style>
     body{
-        background-color: #161618;
+        background: #FFFAFA;
     }
-h4{
-    color:white;
-}
-td{
-    color: white;
-}
-</style>
 
+</style>
 <div class="container">
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
@@ -24,9 +17,10 @@ td{
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="email" style="color: white;" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Cookie::get('remember') !==null ? Cookie::get('remember') : ""}}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -37,7 +31,7 @@ td{
                         </div>
 
                         <div class="row mb-3">
-                            <label for="password" style="color: white;" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -53,9 +47,9 @@ td{
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" checked={{ Cookie::get('remember') !== null }}>
 
-                                    <label style="color: white;" class="form-check-label" for="remember">
+                                    <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
@@ -64,11 +58,11 @@ td{
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-light">
+                                <button type="submit" class="btn btn-outline-primary">
                                     {{ __('Login') }}
                                 </button>
                                 <div class="mt-2">
-                                <p style="color: white;">Don’t have an account?<a href="/register" class="text-decoration-none">  Sign Up</a> </p>
+                                <p>Don’t have an account?<a href="/register" class="text-decoration-none">  Sign Up</a> </p>
                                 </div>
                             </div>
                         </div>

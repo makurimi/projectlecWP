@@ -9,10 +9,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab">
     <style>
-
-    *{
+       body{
         background-color: #161618;
     }
 
@@ -30,11 +29,11 @@
       }
 
       .mynav a:hover {
-          border-bottom: 2px solid #198754;
+          border-bottom: 2px solid white;
       }
 
       .active a {
-          border-bottom: 2px solid #198754;
+          border-bottom: 2px solid white;
       }
 
       .mysearch-input
@@ -48,11 +47,11 @@
       }
       ul .mymenu
       {
-        background-color: #38444d;
+        background-color: #161618;
       }
       .mymenu a:hover
       {
-        color : #38444d;
+        color : #161618;
       }
       .mysearch
       {
@@ -63,14 +62,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg mynav" style="background-color: #161618;">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-lg shadow mynav" style="background-color: #161618;">
+    <div class="container">
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link" aria-current="page" href="/"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgTfq7a9qR6c5rpD23b6ysIzYmlVdsaP43cx9c0UPfToaKhsIrIBvp9LFLFHC_RCmbsKBtKKmqTtjBpI2JXsWxN6HBuRhVxyWZkbvtOZYDfkBP9KoWTmnfgbpJFRpYjYmcV27b8FGVyaJZtGjbkS3wTY9A1jhtmBfYiySL6gOfJZyJMnetkh7_ZEvZS" style="width:50px" alt=""></a>
+          <li class="nav-item {{ Request()->is('/') ? 'active' : '' }}">
+            <a class="nav-link" aria-current="page" href="/"><img src="https://blogger.googleusercontent.com/img/a/AVvXsEgTfq7a9qR6c5rpD23b6ysIzYmlVdsaP43cx9c0UPfToaKhsIrIBvp9LFLFHC_RCmbsKBtKKmqTtjBpI2JXsWxN6HBuRhVxyWZkbvtOZYDfkBP9KoWTmnfgbpJFRpYjYmcV27b8FGVyaJZtGjbkS3wTY9A1jhtmBfYiySL6gOfJZyJMnetkh7_ZEvZS" style="width:40px" alt=""></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item {{ Request()->is('product') ? 'active' : '' }}">
             <a class="nav-link" href="/product">Show Product</a>
           </li>
         </ul>
@@ -80,13 +79,13 @@
                 @guest
                 <ul class="navbar-nav ms-auto mydrop">
                     @if (Route::has('login'))
-                        <li class="nav-item">
+                        <li class="nav-item {{ Request()->is('login') ? 'active' : '' }}">
                             <a class="nav-link bi bi-box-arrow-in-right" href="{{ route('login') }}">  Login</a>
                         </li>
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item ">
+                        <li class="nav-item {{ Request()->is('register') ? 'active' : '' }}">
                             <a class="nav-link bi-person-plus" href="{{ route('register') }}">   Register</a>
                         </li>
                     @endif
@@ -120,10 +119,10 @@
                 @endif
                 @if (Auth::user()->level == 'member')
                 <ul class="navbar-nav ms-auto mydrop">
-                    <li class="nav-item">
+                    <li class="nav-item {{ Request()->is('checkout') ? 'active' : '' }}">
                         <a class="nav-link bi bi-cart2" href="/checkout"> Cart</a>
                       </li>
-                      <li class="nav-item">
+                      <li class="nav-item {{ Request()->is('history') ? 'active' : '' }}">
                         <a class="nav-link bi bi-clock-history" href="/history"> History</a>
                       </li>
                   <li class="nav-item dropdown mr-4">
@@ -151,4 +150,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
-

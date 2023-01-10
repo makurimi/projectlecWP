@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('content')
-
+<style>
+    body{
+        background: #FFFAFA;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
@@ -63,7 +67,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-outline-dark">
+                                <button type="submit" class="btn btn-outline-primary">
                                     {{ __('Register') }}
                                 </button>
                                 <div class="mt-2">

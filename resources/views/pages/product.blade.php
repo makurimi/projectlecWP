@@ -4,18 +4,31 @@
 
 <style>
     body{
-        background-color: #161618;
+        background-color: #FFFAFA;
     }
-h5{
-    color:white;
+
+    h5{
+        text-align: left;
+    }
+
+.card .details .center h5 {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.card .details .center h5 p {
+    font-size: 14px;
+    color: #262626;
 }
 </style>
 <div class="container">
     <div class="row mb-2">
         <div class="col">
             <nav aria-label="breadcrumb mt-2">
-                <ol class="breadcrumb mt-5">
-                    <li class="breadcrumb-item text-dark"><a href="/" class="text-dark text-decoration-none">Home</a></li>
+                <ol class="breadcrumb mt-2">
+                    <li class="breadcrumb-item"><a href="/" class="text-dark text-decoration-none">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">List Laptop</li>
                 </ol>
             </nav>
@@ -29,29 +42,27 @@ h5{
         </div>
     </div>
 
-    <section class="products mb-5">
-        <div class="row mt-4">
-            @foreach($barangs as $barang)
-            <div class="col-md-3 mb-3">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="{{ asset('img/'.$barang->images)  }}" style="max-height:150px"  class="img-fluid ">
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <h5><strong>{{ $barang->namabarang }}</strong> </h5>
-                                <h5>Rp. {{ number_format($barang->harga) }}</h5>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <a href="{{ url('barang') }}/{{ $barang->id }}" class="btn btn-outline-dark" style="color: white;"><i class="bi bi-eye"></i> Detail</a>
-                            </div>
-                        </div>
-                    </div>
+    <section class="products mt-2 mb-5">
+       <div class="row mt-4">
+          @foreach($barangs as $barang)
+          <div class="col-md-3">
+             <div class="text-decoration-none"><a href="{{ url('barang') }}/{{ $barang->id }}" class="text-dark text-decoration-none">
+                <div class="text-center">
+                   <img src="{{ asset('img/'.$barang->images) }}" style="max-height: 300px" class="img-fluid">
+                   <div class="row mt-2">
+                      <div class="col-md-12">
+                        <br>
+                         <h5><strong>{{ $barang->namabarang }}</strong> </h5>
+                         <h5>Rp. {{ number_format($barang->harga) }}</h5>
+                      </div>
+                   </div>
+                   </a>
                 </div>
-            </div>
-            @endforeach
-        </div>
+             </div>
+          </div>
+          @endforeach
+       </div>
+    </section>
         <div class="row">
             <div class="col">
                 {{ $barangs->links() }}

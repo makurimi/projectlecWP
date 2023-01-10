@@ -2,20 +2,7 @@
 @section('content')
 <style>
     body{
-        background-color:#161618;
-    }
-
-    li{
-        color: white;
-    }
-    h3{
-        color: white;
-    }
-    th{
-        color: white;
-    }
-    td{
-        color: white;
+        background: #FFFAFA;
     }
 </style>
 <div class="container">
@@ -23,17 +10,17 @@
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item text-dark"><a href="/" class="text-dark text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item text-dark"><a href="{{ url('home') }}" class="text-dark text-decoration-none">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Check Out</li>
                 </ol>
             </nav>
         </div>
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
+            <div class="card shadow">
+                <div class="card-body shadow">
                     <h3><i class="bi bi-cart2"></i> Check Out</h3>
                     @if(!empty($pesanan))
-                    <p class="text-end" style="color: white;">Order Date : {{ $pesanan->tanggal }}</p>
+                    <p class="text-end">Order Date : {{ $pesanan->tanggal }}</p>
                     <table class="table">
                         <thead>
                             <tr>
@@ -48,39 +35,43 @@
                         </thead>
                         <tbody>
                             <?php $no = 1; ?>
-                            @foreach($pesanan_details as $pesanan_detail)
+                            @foreach($pesanandetails as $detail)
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>
-                                    <img src="{{ asset('img/'.$pesanan_detail->barang->images) }}" width="100" alt="...">
+                                    <img src="{{ asset('img/'.$detail->barang->images) }}" width="100" alt="...">
                                 </td>
-                                <td>{{ $pesanan_detail->barang->namabarang }}</td>
-                                <td>{{ $pesanan_detail->jumlah }} Pcs</td>
-                                <td>Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
-                                <td>Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
+                                <td>{{ $detail->barang->namabarang }}</td>
+                                <td>{{ $detail->jumlah }} Pcs</td>
+                                <td>Rp. {{ number_format($detail->barang->harga) }}</td>
+                                <td>Rp. {{ number_format($detail->jumlah_harga) }}</td>
                                 <td>
-                                    <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
+                                    <form action="{{ url('check-out') }}/{{ $detail->id }}" method="post">
                                         @csrf
                                         {{ method_field('DELETE') }}
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="bi bi-trash3"></i></button>
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="bi bi-trash3"></i></button>
                                     </form>
                                 </td>
+
                             </tr>
                             @endforeach
                             <tr>
                                 <td colspan="5"><strong>Total Price :</strong></td>
                                 <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
                                 <td>
-                                    <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success" onclick="return confirm('Anda yakin akan Check Out ?');">
+                                    <a href="{{ url('confirm') }}" class="btn btn-outline-success" onclick="return confirm('Anda yakin akan Check Out ?');">
                                         <i class="bi bi-cart2"></i> Check Out
                                     </a>
                                 </td>
                             </tr>
 
+
                         </tbody>
                     </table>
-                    <i class="text-center" style="color: white;"> <span class="text-danger ">*</span> Please Insert Address and Mobile Phone first <a href="/editprofile"><i>click here</i></a></i>
+                    <i class="text-center"> <span class="text-danger ">*</span> Please Insert Address and Mobile Phone first <a href="/editprofile"><i>click here</i></a></i>
                     @endif
+
+
 
                 </div>
             </div>
@@ -88,4 +79,9 @@
 
     </div>
 </div>
+@if(empty($pesanan))
+        <div class="text-center mt-5">
+       <h4> <i class="text-light"> Great Your Checkout is already done </i> </h4>
+         </div>
+     @endif
 @endsection

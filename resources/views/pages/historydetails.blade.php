@@ -2,32 +2,18 @@
 @section('content')
 <style>
     body{
-        background-color:#161618;
-    }
-
-    li{
-        color: white;
-    }
-    h3{
-        color: white;
-    }
-    th{
-        color: white;
-    }
-    td{
-        color: white;
+        background: #FFFAFA;
     }
 </style>
-
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ url('history') }}" class="btn btn-outline-dark mt-2" style="color: white;"><i class="bi bi-chevron-left"></i> Back</a>
+            <a href="{{ url('history') }}" class="btn btn-outline-light mt-2"><i class="bi bi-chevron-left"></i> Back</a>
         </div>
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item text-dark"><a href="/" class="text-dark text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item text-dark"><a href="{{ url('home') }}" class="text-dark text-decoration-none">Home</a></li>
                     <li class="breadcrumb-item text-dark" aria-current="page" ><a href="/history" class="text-dark text-decoration-none">Transaction History</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Details</li>
                 </ol>
@@ -35,10 +21,10 @@
         </div>
         <div class="col-md-12">
             <div class="card mt-2">
-                <div class="card-body">
+                <div class="card-body shadow">
                     <h3><i class="bi bi-cart-check"></i> Transaction Detail</h3>
                     @if(!empty($pesanan))
-                    <p class="text-center">Order Date : {{ $pesanan->tanggal }}</p>
+                    <p class="text-end">Order Date : {{ $pesanan->tanggal }}</p>
                     <table class="table">
                         <thead>
                             <tr>

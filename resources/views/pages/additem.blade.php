@@ -15,26 +15,26 @@
                         </div>
                         <div class="mb-4 row">
                                 <div class="form-group col-md-3">
-                                  <label for="inputCity">Price</label>
+                                  <label for="harga">Price</label>
                                   <input type="text" class="form-control" id="inputprice" name="harga">
                                 </div>
                                 <div class="form-group col-md-3">
                                   <label for="inputState">Category</label>
-                                  <select id="inputState" class="form-control" name="category_id" >
-                                    @foreach ($categories as $category)
-                                    <option selected value="{{ $category->id}}">{{ $category->name}}</option>
-                                    @endforeach
-                                  </select>
+                                    <select id="inputState" class="form-control" name="category_id" >
+                                        @foreach ($categories as $category)
+                                            <option selected value="{{ $category->id}}">{{ $category->name}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-3">
                                   <label for="inputid">Item ID</label>
-                                  <input type="text" class="form-control" id="inputid" name="itemid">
+                                  <input type="text" class="form-control" id="inputid" name="itemid" value="">
                                 </div>
                               </div>
 
                         <div class="mb-4 col-md-10">
                             <label for="exampleInputEmail1" class="form-label">Stock</label>
-                            <input type="text" name="stok"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="number" min="0" step="1" class="form-control" name="stock" id="amountInput" >
                           </div>
                         <div class="mb-4 col-md-10">
                             <label for="exampleInputEmail1" class="form-label">Description</label>

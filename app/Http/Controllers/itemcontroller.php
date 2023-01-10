@@ -9,10 +9,9 @@ use Illuminate\Http\Request;
 class itemcontroller extends Controller
 {
     public function item(){
-        $barang = barang::all();
+        $barang = barang::paginate(5);
         return view('pages.item',compact('barang'),[
             'title' => 'Item',
-            'categories' => category::all()
         ]);
     }
 
@@ -37,25 +36,34 @@ class itemcontroller extends Controller
         }
 
         $category = category::findOrFail($request->category_id);
-        $category->barangs()->create([
-            'name'=> $request->name,
-            'images' => $request->images
-        ]);
+        $barang->namabarang = $request->namabarang;
+        $barang->stok = $request->stok;
+        $barang->keterangan = $request->keterangan;
+        $barang->harga = $request -> harga;
+
+        $category->barangs()->save($barang);
         return redirect()->route('item')->with('success','item has been Inserted');
     }
 
-    public function openitem($id){
-        $barang = barang::find($id);
+    public function openitem(int $barang){
+        $categories = category::all();
+        $barang = barang::findOrFail($barang);
         // dd($barang);
-        return view('pages.viewitem',compact('barang'),[
+        return view('pages.viewitem',compact('categories','barang'),[
             'title' => 'UpdateItem',
-            'categories' => category::all()
         ]);
     }
 
-    public function updateitem(Request $request, $id){
-        $barang = barang::find($id);
-        $barang->update($request->all());
+    public function updateitem(Request $request, $barang_id){
+        $category = category::findOrFail($request->category_id);
+        $category->barangs()->where('id',$barang_id)->update([
+            'namabarang' => $request->namabarang,
+            'harga' => $request->harga,
+            'stok' => $request->stok,
+            'keterangan' => $request->keterangan,
+            'images' => $request->images
+        ]);
+
         return redirect()->route('item')->with('success','item has been Updated');
     }
 

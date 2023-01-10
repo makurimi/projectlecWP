@@ -36,21 +36,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Asus',
-            'images' => 'Asus.png'
+            'name' => 'Pop',
+            'images' => 'pop.png'
         ]);
 
         DB::table('categories')->insert([
-            'name' => 'Legion',
-            'images' => 'Legion.png'
+            'name' => 'Rock',
+            'images' => 'rock.png'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Omen',
-            'images' => 'omen.png'
+            'name' => 'Blues',
+            'images' => 'Blues.png'
         ]);
         DB::table('categories')->insert([
-            'name' => 'Predator',
-            'images' => 'predator.png'
+            'name' => 'Disco',
+            'images' => 'disco.png'
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Hip-Hop',
+            'images' => 'hiphop.png'
         ]);
     }
 }

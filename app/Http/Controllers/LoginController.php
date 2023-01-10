@@ -5,19 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+
+    protected $maxAttempts = 3; // Default is 5
+    protected $decayMinutes = 1; // Default is 1
+
     public function register()
     {
         $data['title'] = 'Register';
         return view('user/register', $data);
     }
 
-    public function register_action(Request $request)
+    public function registeract(Request $req)
     {
-        $request->validate([
+        $req->validate([
             'name' => 'required',
             'email' => 'required|unique:User',
             'password' => 'required',
@@ -25,9 +30,9 @@ class LoginController extends Controller
         ]);
 
         $user = new User([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'name' => $req->name,
+            'email' => $req->email,
+            'password' => Hash::make($req->password),
         ]);
         $user->save();
 
@@ -41,20 +46,33 @@ class LoginController extends Controller
         return view('user/login', $data);
     }
 
-    public function login_action(Request $request)
+    public function loginact(Request $req)
     {
-        $request->validate([
+        $req->validate([
             'email' => 'required',
             'password' => 'required',
         ]);
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password],true)) {
-            $request->session()->regenerate();
-            return redirect()->intended('/');
+
+        if($req->remember){
+            Cookie::queue('remember',$req->email,5);
+        }
+        if (Auth::attempt(['email' => $req->email, 'password' => $req->password],true)) {
+            $req->session()->regenerate();
+            return redirect()->intended('/home');
         }
 
         return back()->withErrors([
             'password' => 'Wrong email or password',
         ]);
+    }
+
+
+    public function logout(Request $req)
+    {
+        Auth::logout();
+        $req->session()->invalidate();
+        $req->session()->regenerateToken();
+        return redirect('/home');
     }
 
     public function password()
@@ -63,24 +81,16 @@ class LoginController extends Controller
         return view('user/password', $data);
     }
 
-    public function password_action(Request $request)
+    public function passwordreset(Request $req)
     {
-        $request->validate([
-            'old_password' => 'required|current_password',
-            'new_password' => 'required|confirmed',
+        $req->validate([
+            'oldpassword' => 'required|current_password',
+            'newpassword' => 'required|confirmed',
         ]);
         $user = User::find(Auth::id());
-        $user->password = Hash::make($request->new_password);
+        $user->password = Hash::make($req->new_password);
         $user->save();
-        $request->session()->regenerate();
+        $req->session()->regenerate();
         return back()->with('success', 'Password changed!');
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/');
     }
 }

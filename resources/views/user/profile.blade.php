@@ -1,25 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-
 <style>
-    body{
-        background-color: #161618;
-    }
-h4{
-    color:white;
-}
-td{
-    color: white;
-}
-</style>
 
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item text-dark"><a href="/" class="text-dark text-decoration-none">Home</a></li>
+                    <li class="breadcrumb-item text-light"><a href="/" class="text-dark text-decoration-none">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Profile</li>
                 </ol>
             </nav>
@@ -51,7 +41,7 @@ td{
                                 <td>{{ $user->address }}</td>
                             </tr>
                             <tr>
-                                <a href="{{ url('editprofile')}}" class="btn btn-outline-dark bi bi-person-gear" style="color: white;">   Edit Profile</a>
+                                <a href="{{ url('editprofile')}}" class="btn btn-outline-dark bi bi-person-gear">   Edit Profile</a>
                             </tr>
 
                         </tbody>

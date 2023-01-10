@@ -40,6 +40,6 @@ class profilecontroller extends Controller
 
     	$user->update();
 
-    	return redirect('editprofile');
+    	return redirect('profile');
     }
 }

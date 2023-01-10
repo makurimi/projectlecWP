@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ url('profile') }}" class="btn btn-outline-dark mt-2 mb-2 bi bi-chevron-left"><i class=""></i> Back</a>
+            <a href="{{ url('profile') }}" class="btn btn-outline-light mt-2 mb-2 bi bi-chevron-left"><i class=""></i> Back</a>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item text-dark"><a href="/"class="text-dark text-decoration-none">Home</a></li>
-                <li class="breadcrumb-item text-dark" aria-current="page"><a href="{{ url('profile')}}" class="text-dark text-decoration-none">Profile</a></li>
+                <li class="breadcrumb-item text-light"><a href="/"class="text-light text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item text-light" aria-current="page"><a href="{{ url('profile')}}" class="text-light text-decoration-none">Profile</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
             </ol>
         </nav>
@@ -66,7 +69,7 @@
                             <label for="alamat" class="col-md-2 col-form-label text-md-right">Address</label>
 
                             <div class="col-md-6">
-                                <textarea name="address" class="form-control @error('alamat') is-invalid @enderror" required="">{{ $user->alamat }}</textarea>
+                                <textarea name="address" class="form-control @error('address') is-invalid @enderror" required="">{{ $user->address }}</textarea>
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\cartcontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homecontroller;
 use App\Http\Controllers\itemcontroller;
@@ -22,16 +23,17 @@ use App\Models\category;
 |
 */
 
+Route::get('/home', [homecontroller::class, 'render'])->name('render');
 Route::get('/', [homecontroller::class, 'render'])->name('render');
 
 Route::get('register', [LoginController::class, 'register'])->name('register')->middleware('guest');
-Route::post('register', [LoginController::class, 'register_action'])->name('register.action');
+Route::post('register', [LoginController::class, 'registeract']);
 
 Route::get('login', [LoginController::class, 'login'])->name('login')->middleware('guest');
-Route::post('login', [LoginController::class, 'login_action'])->name('login.action');
+Route::post('login', [LoginController::class, 'loginact']);
 
 Route::get('password', [LoginController::class, 'password'])->name('password');
-Route::post('password', [LoginController::class, 'password_action'])->name('password.action');
+Route::post('password', [LoginController::class, 'passwordreset'])->name('passwordreset');
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/profile', [profilecontroller::class,'index'])->middleware('auth');
@@ -44,11 +46,13 @@ Route::get('/history/{id}', [historycontroller::class,'detail']);
 
 Route::get('/product', [productcontroller::class, 'index'])->name('product');
 Route::get('/product/search', [productcontroller::class, 'search'])->name('search');
-Route::get('barang/{id}',[pesancontroller::class,'index'])->name('index');
-Route::post('barang/{id}', [pesancontroller::class, 'Pesan'])->name('Pesan')->middleware('auth');
-Route::get('checkout', [pesancontroller::class,'checkout']);
-Route::delete('check-out/{id}', [pesancontroller::class, 'delete']);
-Route::get('konfirmasi-check-out', [pesancontroller::class,'konfirmasi']);
+
+Route::get('barang/{id}',[cartcontroller::class,'index'])->name('index');
+Route::post('barang/{id}', [cartcontroller::class, 'Pesan'])->name('Pesan')->middleware('auth');
+Route::get('checkout', [cartcontroller::class,'checkout']);
+Route::delete('check-out/{id}', [cartcontroller::class, 'delete']);
+
+Route::get('confirm', [cartcontroller::class,'confirm']);
 
 Route::get('/categories/{id}', [categorycontroller::class, 'show']);
 Route::get('/product/search', [categorycontroller::class, 'mysearch'])->name('mysearch');

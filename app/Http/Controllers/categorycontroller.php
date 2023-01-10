@@ -31,7 +31,7 @@ class categorycontroller extends Controller
         $barangs = barang::where('namabarang','LIKE',"%$request->search%")->simplepaginate(8);
 
         return view('pages.categories',[
-            'title' => 'Search Product'
+            'title' => 'Search Product',
         ])->with('barangs',$barangs);
 
     }
