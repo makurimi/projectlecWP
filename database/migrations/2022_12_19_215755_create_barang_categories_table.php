@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('barang_id');
             $table->index('barang_id');
             $table->foreign('barang_id')->references('id')->on('barangs');
-
             $table->foreignId('category_id');
             $table->index('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
