@@ -11,8 +11,8 @@
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item text-light"><a href="/"class="text-light text-decoration-none">Home</a></li>
-                <li class="breadcrumb-item text-light" aria-current="page"><a href="{{ url('profile')}}" class="text-light text-decoration-none">Profile</a></li>
+                <li class="breadcrumb-item text-light"><a href="/"class="text-dark text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item text-light" aria-current="page"><a href="{{ url('profile')}}" class="text-dark text-decoration-none">Profile</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
             </ol>
         </nav>

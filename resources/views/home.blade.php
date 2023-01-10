@@ -47,7 +47,7 @@
  </div>
  <div class="container">
     <section class="pilih-brand mt-4">
-       <h3><p class="text-dark">Category</p class="text-dark"></h3>
+       <h3><strong class="text-dark">Category</strong class="text-dark"></h3>
        <div class="row mt-4">
           @foreach($categories as $kategori)
           <div class="col">
@@ -65,7 +65,7 @@
 
     <section class="mt-5 mb-5">
        <h3>
-          <p class="text-dark">Latest Release</p>
+          <strong class="text-dark">Latest Release</strong>
           <a href="/product" class="btn btn-outline-dark"><span class="text-end"> Lihat Semua </span></a>
        </h3>
        <div class="row mt-4 ">
@@ -89,4 +89,5 @@
        </div>
     </section>
  </div>
+
 @endsection

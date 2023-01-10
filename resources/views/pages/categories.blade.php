@@ -72,8 +72,7 @@
         </div>
     </div>
 
-    <section class="products mt-5 mb-5">
-
+    <section class="products mt-2 mb-5">
        <div class="row mt-4">
           @foreach($barangs as $barang)
           <div class="col-md-3">
@@ -90,6 +89,7 @@
                    </a>
                 </div>
              </div>
+          </div>
           @endforeach
        </div>
     </section>

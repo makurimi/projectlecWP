@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<br>
 <h1 class="text-center mb-10">Insert Item </h1>
     <div class="container ">
         <div class="row justify-content-center">
@@ -52,6 +53,6 @@
          </div>
         </div>
     </div>
-
+<br>
 
 @endsection

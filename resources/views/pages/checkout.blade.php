@@ -79,9 +79,11 @@
 
     </div>
 </div>
+<br>
 @if(empty($pesanan))
         <div class="text-center mt-5">
        <h4> <i class="text-light"> Great Your Checkout is already done </i> </h4>
          </div>
      @endif
+     <br>
 @endsection
