@@ -249,7 +249,7 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/novan_bhakti/"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="https://www.instagram.com/novan_bhakti/"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="https://www.instagram.com/betrandpetoputraonsu/"><i class="icon ion-social-instagram"></i></a></div>
                 </div>
                 <p class="copyright">Jajang Record Vinyl © 2023</p>
             </div>
